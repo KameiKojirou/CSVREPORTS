@@ -1,5 +1,5 @@
 import "dart:io";
-
+var totalDuration = 0.0;
 void main(List<String> arguments) {
   if (arguments.isEmpty){
     print('Usage; dart full-console.dart <export.csv>');
@@ -9,6 +9,7 @@ void main(List<String> arguments) {
   final lines = File(inputFile).readAsLinesSync();
   final totalDurationByTag = <String, double> {};
   lines.removeAt(0); //Removes header line
+  
   for (var line in lines){
     final values = line.split(',');
     final durationStr = values[3].replaceAll('"', '');
@@ -20,10 +21,12 @@ void main(List<String> arguments) {
     } else {
       totalDurationByTag[tag] = previousTotal + duration;
     }
+    totalDuration += duration;
   }
   for (var entry in totalDurationByTag.entries){
     final durationFormatted = entry.value.toStringAsFixed(1);
-    final tag = entry.key;
+    final tag = entry.key == '' ? 'Unallocated' : entry.key;
     print('$tag: ${durationFormatted}h');
   }
+  print('Total for all tages: ${totalDuration.toStringAsFixed(1)}');
 }
