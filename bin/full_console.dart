@@ -30,5 +30,5 @@ void main(List<String> arguments) {
     final tag = entry.key == '' ? 'Unallocated' : entry.key;
     print('$tag: ${durationFormatted}h');
   }
-  print('Total for all tags: ${totalDuration.toStringAsFixed(1)}');
+  print('Total for all tags: ${totalDuration.toStringAsFixed(1)}h');
 }
