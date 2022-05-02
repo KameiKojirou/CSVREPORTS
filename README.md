@@ -1,1 +1,1 @@
-A simple command-line application.
+A simple Dart CSV Import Report Script.
