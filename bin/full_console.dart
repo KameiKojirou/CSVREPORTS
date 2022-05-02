@@ -1,5 +1,6 @@
 import "dart:io";
-var totalDuration = 0.0;//
+var totalDuration = 0.0;
+// The Complete Dart Language Guide Guide for Beginners and Beyond
 void main(List<String> arguments) {
   if (arguments.isEmpty){
     print('Usage; dart full-console.dart <export.csv>');
